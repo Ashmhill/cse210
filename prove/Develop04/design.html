@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mindfulness Program Class Diagram</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .class {
+            border: 1px solid #333;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .class-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .class-attributes,
+        .class-methods {
+            margin-left: 20px;
+        }
+        .key {
+            margin-top: 20px;
+        }
+        .key-item {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mindfulness Activity Design</h1>    
+    <nav>
+        <a href="sandbox/Sandbox/Sandbox.html">Sandbox</a>
+        <a href="csharp-prep/prep.html">csharp-prep</a>
+        <a href="prepare/prepare.html">prepare</a>
+        <a href="prove/prove.html">prove</a>
+        <a href="final/final.html">final</a>
+        <a href="Develop04.csproj">CS Project</a>
+    </nav>
+    <div class="class">
+        <div class="class-title">MindfulnessActivity</div>
+        <div class="class-attributes">
+            - name: string<br>
+            - description: string<br>
+            - duration: int
+        </div>
+        <div class="class-methods">
+            + start(): void<br>
+            + end(): void<br>
+            + pause(seconds: int): void
+        </div>
+    </div>
+    <div class="class">
+        <div class="class-title">BreathingActivity</div>
+        <div class="class-attributes">
+            - prompts: list
+        </div>
+        <div class="class-methods">
+            + perform(): void
+        </div>
+    </div>
+    <div class="class">
+        <div class="class-title">ReflectionActivity</div>
+        <div class="class-attributes">
+            - questions: list
+        </div>
+        <div class="class-methods">
+            + perform(): void
+        </div>
+    </div>
+    <div class="class">
+        <div class="class-title">ListingActivity</div>
+        <div class="class-attributes">
+            - prompts: list
+        </div>
+        <div class="class-methods">
+            + perform(): void
+        </div>
+    </div>
+
+    <div class="key">
+        <div class="key-item">- : Private attribute</div>
+        <div class="key-item">+ : Public method</div>
+    </div>
+</body>
+</html>
+
