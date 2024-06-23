@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class Diagram</title>
+    <style>
+        .class-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .class {
+            border: 1px solid #000;
+            padding: 10px;
+            width: 250px;
+            text-align: center;
+        }
+        .class .title {
+            font-weight: bold;
+            border-bottom: 1px solid #000;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+        }
+        .arrow {
+            width: 20px;
+            height: 20px;
+            border-top: 2px solid #000;
+            border-right: 2px solid #000;
+            transform: rotate(45deg);
+            margin: -20px 0 0 0;
+        }
+        .inheritance-line {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Eternal Quest Program</h1>
+    <div class="class-diagram">
+        <div class="class">
+            <div class="title">Goal</div>
+            <div>Name: string</div>
+            <div>Points: int</div>
+            <div>IsComplete: bool</div>
+            <div><strong>Methods:</strong></div>
+            <div>Goal(name, points)</div>
+            <div>RecordEvent(): void</div>
+            <div>DisplayProgress(): string</div>
+        </div>
+        <div class="inheritance-line">
+            <div class="arrow"></div>
+        </div>
+        <div class="class">
+            <div class="title">SimpleGoal</div>
+            <div><strong>Methods:</strong></div>
+            <div>RecordEvent(): void</div>
+            <div>DisplayProgress(): string</div>
+        </div>
+        <div class="class">
+            <div class="title">EternalGoal</div>
+            <div>Frequency: int</div>
+            <div>TotalRecorded: int</div>
+            <div><strong>Methods:</strong></div>
+            <div>RecordEvent(): void</div>
+            <div>DisplayProgress(): string</div>
+        </div>
+        <div class="class">
+            <div class="title">ChecklistGoal</div>
+            <div>TargetCount: int</div>
+            <div>CurrentCount: int</div>
+            <div><strong>Methods:</strong></div>
+            <div>RecordEvent(): void</div>
+            <div>DisplayProgress(): string</div>
+        </div>
+    </div>
+    <div style="margin-top: 20px;">
+        <h2>Explanation of Classes and Methods</h2>
+        <p><strong>Goal Class (Base Class)</strong></p>
+        <ul>
+            <li><strong>Attributes:</strong> Name, Points, IsComplete</li>
+            <li><strong>Methods:</strong> RecordEvent(), DisplayProgress()</li>
+        </ul>
+        <p><strong>SimpleGoal Class (Derived Class)</strong></p>
+        <ul>
+            <li><strong>Methods:</strong> Overrides RecordEvent() and DisplayProgress()</li>
+        </ul>
+        <p><strong>EternalGoal Class (Derived Class)</strong></p>
+        <ul>
+            <li><strong>Attributes:</strong> Frequency, TotalRecorded</li>
+            <li><strong>Methods:</strong> Overrides RecordEvent() and DisplayProgress()</li>
+        </ul>
+        <p><strong>ChecklistGoal Class (Derived Class)</strong></p>
+        <ul>
+            <li><strong>Attributes:</strong> TargetCount, CurrentCount</li>
+            <li><strong>Methods:</strong> Overrides RecordEvent() and DisplayProgress()</li>
+        </ul>
+    </div>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
