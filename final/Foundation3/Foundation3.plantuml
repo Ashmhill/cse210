@@ -1,0 +1,76 @@
+@startuml
+class Event {
+  - String eventName
+  - LocalDate date
+  - String location
+  - String description
+  + getEventName()
+  + getDate()
+  + getLocation()
+  + getDescription()
+  + displayEventDetails()
+}
+
+class Meeting extends Event {
+  - String agenda
+  - List<String> attendees
+  + getAgenda()
+  + getAttendees()
+  + addAttendee(String attendee)
+  + removeAttendee(String attendee)
+  + displayMeetingDetails()
+}
+
+class Party extends Event {
+  - String theme
+  - List<String> guestList
+  + getTheme()
+  + getGuestList()
+  + addGuest(String guest)
+  + removeGuest(String guest)
+  + displayPartyDetails()
+}
+
+class Conference extends Event {
+  - List<String> speakers
+  - String schedule
+  + getSpeakers()
+  + getSchedule()
+  + addSpeaker(String speaker)
+  + removeSpeaker(String speaker)
+  + displayConferenceDetails()
+}
+
+class Catering {
+  - List<String> menuOptions
+  - double cost
+  + getMenuOptions()
+  + getCost()
+  + addMenuOption(String option)
+  + removeMenuOption(String option)
+  + calculateTotalCost()
+  + displayCateringDetails()
+}
+
+class Venue {
+  - String location
+  - int capacity
+  - List<String> amenities
+  - boolean availability
+  + getLocation()
+  + getCapacity()
+  + getAmenities()
+  + getAvailability()
+  + bookVenue()
+  + cancelBooking()
+  + displayVenueDetails()
+}
+
+Event <|-- Meeting
+Event <|-- Party
+Event <|-- Conference
+Meeting --> Catering
+Party --> Catering
+Conference --> Catering
+Event --> Venue
+@enduml

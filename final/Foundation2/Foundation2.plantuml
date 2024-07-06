@@ -1,0 +1,62 @@
+@startuml
+class Order {
+  - List<Item> itemList
+  - double totalCost
+  + getItemList()
+  + addItem(Item item)
+  + removeItem(Item item)
+  + getTotalCost()
+  + calculateTotalCost()
+  + displayOrderDetails()
+}
+
+class Item {
+  - String name
+  - double price
+  - int quantity
+  + getName()
+  + getPrice()
+  + getQuantity()
+  + setQuantity(int quantity)
+  + calculateItemCost()
+  + displayItemDetails()
+}
+
+class Customer {
+  - String name
+  - String address
+  - String contactDetails
+  - List<Order> orderHistory
+  + getName()
+  + getAddress()
+  + getContactDetails()
+  + getOrderHistory()
+  + placeOrder(Order order)
+  + displayCustomerDetails()
+}
+
+class Payment {
+  - String paymentMethod
+  - String paymentDetails
+  + getPaymentMethod()
+  + getPaymentDetails()
+  + processPayment()
+  + displayPaymentDetails()
+}
+
+class Shipping {
+  - String shippingAddress
+  - String shippingMethod
+  - double shippingCost
+  + getShippingAddress()
+  + getShippingMethod()
+  + getShippingCost()
+  + calculateShippingCost()
+  + displayShippingDetails()
+}
+
+Order --> Item
+Customer --> Order
+Order --> Payment
+Order --> Shipping
+@enduml

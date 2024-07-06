@@ -1,0 +1,75 @@
+@startuml
+class Exercise {
+  - String name
+  - int duration
+  - int caloriesBurned
+  + getName()
+  + getDuration()
+  + getCaloriesBurned()
+  + calculateCaloriesBurned()
+  + displayExerciseDetails()
+}
+
+class Running extends Exercise {
+  - double distance
+  - double pace
+  + getDistance()
+  + getPace()
+  + calculatePace()
+  + displayRunningDetails()
+}
+
+class Cycling extends Exercise {
+  - double speed
+  - String terrainType
+  + getSpeed()
+  + getTerrainType()
+  + displayCyclingDetails()
+}
+
+class Swimming extends Exercise {
+  - String strokeType
+  - int laps
+  + getStrokeType()
+  + getLaps()
+  + displaySwimmingDetails()
+}
+
+class WorkoutPlan {
+  - List<Exercise> exerciseList
+  - int duration
+  - String goals
+  + getExerciseList()
+  + addExercise(Exercise exercise)
+  + removeExercise(Exercise exercise)
+  + getDuration()
+  + setDuration(int duration)
+  + getGoals()
+  + setGoals(String goals)
+  + trackProgress()
+  + displayWorkoutPlanDetails()
+}
+
+class UserProfile {
+  - String username
+  - int age
+  - double weight
+  - String fitnessGoals
+  + getUsername()
+  + getAge()
+  + setAge(int age)
+  + getWeight()
+  + setWeight(double weight)
+  + getFitnessGoals()
+  + setFitnessGoals(String fitnessGoals)
+  + personalizeRecommendations()
+  + trackUserProgress()
+  + displayUserProfile()
+}
+
+WorkoutPlan --> Exercise
+UserProfile --> WorkoutPlan
+Exercise <|-- Running
+Exercise <|-- Cycling
+Exercise <|-- Swimming
+@enduml

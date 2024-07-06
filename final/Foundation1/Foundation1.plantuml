@@ -1,0 +1,70 @@
+@startuml
+class Video {
+  - String title
+  - String description
+  - int duration
+  - LocalDate uploadDate
+  + getTitle()
+  + getDescription()
+  + getDuration()
+  + getUploadDate()
+  + play()
+  + pause()
+  + stop()
+  + displayVideoDetails()
+}
+
+class Channel {
+  - String channelName
+  - String channelDescription
+  - List<Video> videoList
+  + getChannelName()
+  + getChannelDescription()
+  + getVideoList()
+  + addVideo(Video video)
+  + removeVideo(Video video)
+  + displayChannelDetails()
+}
+
+class Playlist {
+  - String playlistName
+  - String playlistDescription
+  - List<Video> videoList
+  + getPlaylistName()
+  + getPlaylistDescription()
+  + getVideoList()
+  + addVideo(Video video)
+  + removeVideo(Video video)
+  + displayPlaylistDetails()
+}
+
+class Comment {
+  - String commentText
+  - String author
+  - LocalDate date
+  + getCommentText()
+  + getAuthor()
+  + getDate()
+  + displayComment()
+}
+
+class User {
+  - String username
+  - List<Channel> subscribedChannels
+  - List<Playlist> playlists
+  + getUsername()
+  + getSubscribedChannels()
+  + subscribeToChannel(Channel channel)
+  + unsubscribeFromChannel(Channel channel)
+  + getPlaylists()
+  + createPlaylist(Playlist playlist)
+  + deletePlaylist(Playlist playlist)
+  + displayUserDetails()
+}
+
+Channel --> Video
+Playlist --> Video
+User --> Channel
+User --> Playlist
+Video --> Comment
+@enduml
