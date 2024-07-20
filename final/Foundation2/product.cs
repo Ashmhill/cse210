@@ -1,4 +1,3 @@
-// Product.cs
 public class Product
 {
     private string name;
@@ -14,28 +13,18 @@ public class Product
         this.quantity = quantity;
     }
 
-    public string Name
-    {
-        get { return name; }
-    }
-
-    public string ProductId
-    {
-        get { return productId; }
-    }
-
-    public double PricePerUnit
-    {
-        get { return pricePerUnit; }
-    }
-
-    public int Quantity
-    {
-        get { return quantity; }
-    }
-
-    public double TotalCost()
+    public double GetTotalCost()
     {
         return pricePerUnit * quantity;
+    }
+
+    public string GetName()
+    {
+        return name;
+    }
+
+    public string GetProductId()
+    {
+        return productId;
     }
 }

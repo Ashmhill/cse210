@@ -1,19 +1,13 @@
-// Comment.cs
-using System;
-
 public class Comment
 {
-    public string CommenterName { get; set; }
-    public string Text { get; set; }
+    public string CommenterName { get; private set; }
+    public string CommentText { get; private set; }
 
-    public Comment(string commenterName, string text)
+    public Comment(string commenterName, string commentText)
     {
         CommenterName = commenterName;
-        Text = text;
-    }
-
-    public override string ToString()
-    {
-        return $"{CommenterName}: {Text}";
+        CommentText = commentText;
     }
 }
+
+

@@ -1,34 +1,32 @@
-// Video.cs
-using System;
 using System.Collections.Generic;
 
 public class Video
 {
-    public string Title { get; set; }
-    public string Author { get; set; }
-    public int Length { get; set; } // Length in seconds
-    public List<Comment> Comments { get; set; }
+    public string Title { get; private set; }
+    public string Author { get; private set; }
+    public int LengthInSeconds { get; private set; }
+    private List<Comment> comments;
 
-    public Video(string title, string author, int length)
+    public Video(string title, string author, int lengthInSeconds)
     {
         Title = title;
         Author = author;
-        Length = length;
-        Comments = new List<Comment>();
+        LengthInSeconds = lengthInSeconds;
+        comments = new List<Comment>();
     }
 
     public void AddComment(Comment comment)
     {
-        Comments.Add(comment);
+        comments.Add(comment);
     }
 
-    public int NumberOfComments()
+    public int GetNumberOfComments()
     {
-        return Comments.Count;
+        return comments.Count;
     }
 
-    public override string ToString()
+    public List<Comment> GetComments()
     {
-        return $"Title: {Title}, Author: {Author}, Length: {Length} seconds, Comments: {NumberOfComments()}";
+        return new List<Comment>(comments);
     }
 }

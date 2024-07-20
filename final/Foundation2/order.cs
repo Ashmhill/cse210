@@ -1,5 +1,3 @@
-// Order.cs
-using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -19,24 +17,16 @@ public class Order
         products.Add(product);
     }
 
-    public double TotalCost()
+    public double GetTotalCost()
     {
-        double total = 0;
+        double totalCost = 0;
         foreach (var product in products)
         {
-            total += product.TotalCost();
+            totalCost += product.GetTotalCost();
         }
 
-        if (customer.IsInUSA())
-        {
-            total += 5; // Shipping cost for USA
-        }
-        else
-        {
-            total += 35; // Shipping cost for non-USA
-        }
-
-        return total;
+        double shippingCost = customer.LivesInUSA() ? 5 : 35;
+        return totalCost + shippingCost;
     }
 
     public string GetPackingLabel()
@@ -44,13 +34,14 @@ public class Order
         StringBuilder packingLabel = new StringBuilder();
         foreach (var product in products)
         {
-            packingLabel.AppendLine($"{product.Name} (ID: {product.ProductId})");
+            packingLabel.AppendLine($"{product.GetName()} ({product.GetProductId()})");
         }
         return packingLabel.ToString();
     }
 
     public string GetShippingLabel()
     {
-        return $"{customer.Name}\n{customer.Address}";
+        return $"{customer.GetName()}\n{customer.GetAddress().GetFullAddress()}";
     }
 }
+

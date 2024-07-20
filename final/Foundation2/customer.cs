@@ -1,4 +1,3 @@
-// Customer.cs
 public class Customer
 {
     private string name;
@@ -10,18 +9,18 @@ public class Customer
         this.address = address;
     }
 
-    public string Name
-    {
-        get { return name; }
-    }
-
-    public Address Address
-    {
-        get { return address; }
-    }
-
-    public bool IsInUSA()
+    public bool LivesInUSA()
     {
         return address.IsInUSA();
+    }
+
+    public string GetName()
+    {
+        return name;
+    }
+
+    public Address GetAddress()
+    {
+        return address;
     }
 }
